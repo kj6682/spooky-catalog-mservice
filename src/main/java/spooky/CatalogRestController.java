@@ -1,21 +1,36 @@
 package spooky;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 @RefreshScope
 @RestController
 public class CatalogRestController {
 
-    @Value("${message}")
-    private String message;
+    @Autowired
+    SpookyFeatureConfig spookyFeatureConfig;
+
 
     @RequestMapping("/message")
     String getMessage() {
-        return this.message;
+        return spookyFeatureConfig.getMessage();
     }
 
+    @RequestMapping("/execute/action1")
+    String executeActionOne() {
+        if(spookyFeatureConfig.isAction1Enabled()){
+            return "action ONE is enabled.";
+        }
+        return "sorry mate, no party for you.";
+    }
 
+    @RequestMapping("/execute/action2")
+    String executeActionTwo() {
+        if(spookyFeatureConfig.isAction2Enabled()){
+            return "action TWO is enabled.";
+        }
+        return "sorry mate, no party for you.";
+    }
 }
