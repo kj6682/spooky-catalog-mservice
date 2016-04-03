@@ -16,4 +16,6 @@ public class CatalogRestController {
     String getMessage() {
         return this.message;
     }
+
+
 }
