@@ -1,11 +1,13 @@
 package spooky;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by luigi on 03/04/16.
  */
+@RefreshScope
 @Configuration
 public class SpookyFeatureConfig {
 
