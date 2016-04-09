@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: catalog
+  cloud:
+    config:
+      label: dev
+      uri: http://localhost:8888
