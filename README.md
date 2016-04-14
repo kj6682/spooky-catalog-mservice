@@ -21,3 +21,8 @@ http://localhost:8080/message
 https://spring.io/guides/gs/centralized-configuration/
 items
 
+##swagger:
+http://localhost:8080/v2/api-docs
+http://localhost:8080/swagger-ui.html
+###reference:
+http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
