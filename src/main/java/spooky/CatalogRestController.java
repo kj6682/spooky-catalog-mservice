@@ -2,6 +2,7 @@ package spooky;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,6 +18,8 @@ public class CatalogRestController {
     @Autowired
     SpookyFeatureConfig spookyFeatureConfig;
 
+    @Autowired
+    CatalogService catalogService;
 
     @RequestMapping("/message")
     String getMessage() {
@@ -30,7 +33,7 @@ public class CatalogRestController {
             throw new UnsupportedOperationException();
         }
 
-        return new Item("1", "action ONE is enabled.", LocalDateTime.MAX);
+        return catalogService.findOne();
     }
 
     @RequestMapping("/execute/action2")
@@ -38,6 +41,8 @@ public class CatalogRestController {
         if (!spookyFeatureConfig.isAction2Enabled()) {
             throw new UnsupportedOperationException();
         }
+
+        catalogService.addItem("nutella");
 
         return "action TWO is enabled.";
     }

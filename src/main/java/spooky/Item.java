@@ -8,13 +8,14 @@ import java.time.LocalDateTime;
 public class Item {
     private final String _id;
     private final String name;
-    private final LocalDateTime bestBefore;
+    private final String bestBefore;
+//    private final LocalDateTime bestBefore;
 
     public String get_id() {
         return _id;
     }
 
-    public LocalDateTime getBestBefore() {
+    public String getBestBefore() {
         return bestBefore;
     }
 
@@ -22,7 +23,7 @@ public class Item {
         return name;
     }
 
-    public Item(String _id, String name, LocalDateTime bestBefore) {
+    public Item(String _id, String name, String bestBefore) {
         this._id = _id;
         this.name = name;
         this.bestBefore = bestBefore;
