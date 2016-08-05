@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: catalog
+    name: items
   cloud:
     config:
       label: master

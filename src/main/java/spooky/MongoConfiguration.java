@@ -8,7 +8,6 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.StringUtils;
 
 /**
  * Created by luigi on 16/04/16.
@@ -41,8 +40,8 @@ public class MongoConfiguration {
     }
 
     @Bean
-    public CatalogService catalogService(){
-        return new CatalogService(catalogCollection());
+    public ItemService catalogService(){
+        return new ItemService(catalogCollection());
     }
 
 }

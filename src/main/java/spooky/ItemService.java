@@ -1,25 +1,21 @@
 package spooky;
 
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by luigi on 17/04/16.
  */
-public class CatalogService {
+public class ItemService {
 
 
     @Autowired
     MongoCollection<Document> catalogCollection;
 
-    public CatalogService(MongoCollection<Document> catalogCollection) {
+    public ItemService(MongoCollection<Document> catalogCollection) {
         this.catalogCollection = catalogCollection;
     }
 
@@ -35,8 +31,10 @@ public class CatalogService {
         return item.toString();
     }
 
-    public Item findOne(){
+    public Item findOne() {
         Document document = catalogCollection.find().first();
-        return new Item(document.get("_id").toString(), document.get("name").toString(), document.get("bestBefore").toString());
+        return new Item(document.get("_id").toString(),
+                document.get("name").toString(),
+                document.get("bestBefore").toString());
     }
 }

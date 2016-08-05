@@ -1,6 +1,6 @@
-# spooky-catalog-mservice
+# spooky-items-service
 
-## Catalog
+## Items
 A microservice to browse and store items. 
 
 

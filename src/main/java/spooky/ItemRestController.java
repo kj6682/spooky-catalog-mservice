@@ -2,7 +2,6 @@ package spooky;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,16 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 @RestController
-public class CatalogRestController {
+public class ItemRestController {
 
     @Autowired
     SpookyFeatureConfig spookyFeatureConfig;
 
     @Autowired
-    CatalogService catalogService;
+    ItemService catalogService;
 
     @RequestMapping("/message")
     String getMessage() {
