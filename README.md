@@ -8,6 +8,10 @@ A microservice to browse and store items.
 mvn clean compile
 
 ##run: 
+
+mvn spring-boot:run -Dspring.profiles.active=local
+local is on port 8080 and the configuration now is loaded locally with no need of running the config service
+
 mvn spring-boot:run
 dev the default profile on port 8080
 
